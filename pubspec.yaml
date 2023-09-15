@@ -40,7 +40,9 @@ dependencies:
   bloc:
   shared_preferences:
   smooth_page_indicator:
-
+  dio:
+  conditional_builder_null_safety:
+  colorful_circular_progress_indicator:
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -5,6 +5,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:shop/shared/cubit/cubit.dart';
 import 'package:shop/shared/cubit/states.dart';
 import 'package:shop/shared/network/local/cache_helper.dart';
+import 'package:shop/shared/network/remote/dio_helper.dart';
 import 'package:shop/shared/styles/themes.dart';
 
 import 'layout/shop_app/bloc_observer.dart';
@@ -14,6 +15,7 @@ Future<void> main()async {
   //كل لما احط async مع main لازم اكتب جملة widget flutter binding
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
+   DioHelper.init();
 //  لان init عبارة عن asyncلازم احط await
 await CacheHelper.init();
 bool? isDark = CacheHelper.getBoolean(key: 'isDark');
