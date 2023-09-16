@@ -74,15 +74,23 @@ var formKey=GlobalKey<FormState>();
                                 password: passwordcontroller.text);
                           }
                 },
-                           obscureText: ShopLoginCubit.get(context).obscureText,
-                          onTap: ShopLoginCubit.get(context).changePasswordVisibility(),
+                           obscureText: ShopLoginCubit.get(context).isShowPassword,
                           validator:(String ? value) {
                             if(value!.isEmpty){
                               return 'password is too short';
                             }
                           },
                           decoration: InputDecoration(
-                              suffixIcon: Icon(ShopLoginCubit.get(context).suffix),
+                            suffixIcon: InkWell(
+                              onTap: () {
+                               ShopLoginCubit.get(context)
+                                    .changePasswordVisibility();
+                              },
+                              child:
+                              ShopLoginCubit.get(context).isShowPassword
+                                  ? const Icon(Icons.visibility)
+                                  : const Icon(Icons.visibility_off),
+                            ),
                               prefixIcon:Icon( Icons.lock_outline,),
                               border: OutlineInputBorder(),
                             labelText: 'Password',

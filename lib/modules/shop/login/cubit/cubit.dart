@@ -30,12 +30,11 @@ class ShopLoginCubit extends Cubit<ShopLoginState> {
   }
 
 
-  IconData suffix = Icons.visibility;
-  bool obscureText = true;
-
-   changePasswordVisibility() {
-     obscureText = !obscureText;
-    suffix = obscureText ? Icons.visibility : Icons.visibility_off_outlined;
+  // IconData suffix = Icons.visibility;
+  bool isShowPassword = true;
+  void changePasswordVisibility (){
+    isShowPassword= !isShowPassword;
     emit(ShopChangePasswordVisibilityState());
   }
+
 }
