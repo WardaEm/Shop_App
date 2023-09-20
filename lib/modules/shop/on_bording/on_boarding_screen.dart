@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop/modules/shop/login/Shop_login_screen.dart';
+import 'package:shop/shared/network/local/cache_helper.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../shared/styles/colors.dart';
@@ -40,13 +41,21 @@ List<BoardingModel>boarding = [
 
   ];
 bool isLast=false;
+void submit(){
+  CacheHelper.saveData(key: 'onBoarding', value: 'true').then((value) {
+    if(value!){
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ShopLoginScreen()));
+
+    }
+  });
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           actions: [
             TextButton(onPressed: (){
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ShopLoginScreen()));
+              submit();
     },child:Text('SKIP'))
           ],
         ),
@@ -95,8 +104,8 @@ bool isLast=false;
               Spacer(),
               FloatingActionButton(onPressed: (){
                 if(isLast){
+                  submit();
                   // Navigator.push(context, MaterialPageRoute(builder: (context)=>ShopLoginScreen()));
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ShopLoginScreen()));
                 }else{
                 boardcontroller.nextPage(
                     duration:

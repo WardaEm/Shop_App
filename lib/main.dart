@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:shop/modules/shop/login/Shop_login_screen.dart';
 import 'package:shop/shared/cubit/cubit.dart';
 import 'package:shop/shared/cubit/states.dart';
 import 'package:shop/shared/network/local/cache_helper.dart';
@@ -18,14 +19,20 @@ Future<void> main()async {
    DioHelper.init();
 //  لان init عبارة عن asyncلازم احط await
 await CacheHelper.init();
-bool? isDark = CacheHelper.getBoolean(key: 'isDark');
-  runApp(MyApp(isDark:isDark));
+bool? isDark = CacheHelper.getData(key: 'isDark');
+  dynamic onBoarding = CacheHelper.getData(key: 'onBoarding');
+  print(onBoarding);
+  runApp(MyApp(isDark:isDark,
+  onBoarding: onBoarding!,));
 }
   class MyApp extends StatelessWidget {
   
 final bool  ? isDark;
+ final dynamic   onBoarding;
+
   MyApp({
     this.isDark,
+      this.onBoarding
   });
   @override
   Widget build(BuildContext context) {
@@ -42,7 +49,8 @@ final bool  ? isDark;
                   themeMode: AppCubit
                       .get(context)
                       .isDark ? ThemeMode.dark : ThemeMode.light,
-                  home: OnBoardingScreen()
+                  home:onBoarding ? ShopLoginScreen():OnBoardingScreen()
+                  // onBoarding ? ShopLoginScreen() : OnBoardingScreen()
 
 
               );

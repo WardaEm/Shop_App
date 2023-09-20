@@ -43,6 +43,7 @@ dependencies:
   dio:
   conditional_builder_null_safety:
   colorful_circular_progress_indicator:
+  fluttertoast:
 dev_dependencies:
   flutter_test:
     sdk: flutter

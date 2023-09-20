@@ -18,12 +18,25 @@ class CacheHelper{
      return await sharedPreferences!.setBool(key, value);
     }
   // بستخدم معاها getbool تاني ميثود انعملها هي getBoolean
-  static bool? getBoolean({
-    required String key,
+  // static bool? getBoolean({required String key}) {
+  //   return sharedPreferences?.getBool(key);
+  // }
+  static dynamic  getData({
+    required dynamic key,
   })
   {
     //داخل الميثود بناخد المتغير اللي احنا عرفناه .set النوع اللي اشتغل عليه الset boolبترجع future bool
-   return  sharedPreferences!.getBool(key);
+   return  sharedPreferences!.get(key);
   }
+  //اانعمل ميثود تحفظ البيانات
+static Future<bool?> saveData({
+  required String key,
+   required dynamic value,
+})async{
+    if(value is String) return await sharedPreferences?.setString(key, value);
+    if(value is int) return await sharedPreferences?.setInt(key, value);
+    if(value is bool) return await sharedPreferences?.setBool(key, value);
+   return await sharedPreferences?.setDouble(key, value);
+}
   }
 
