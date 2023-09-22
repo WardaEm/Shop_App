@@ -1,6 +1,6 @@
 class LoginModel {
- late final bool status;
- late  String message;
+ late final dynamic status;
+ late  dynamic message;
   UserDataModel ? data;
 
 

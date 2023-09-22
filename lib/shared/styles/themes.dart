@@ -24,7 +24,7 @@ ThemeData darkTheme = ThemeData(
   ),
   appBarTheme: AppBarTheme(
       titleTextStyle: TextStyle(
-          color: Colors.white,
+          color: Colors.black,
           fontSize: 25,
           fontWeight: FontWeight.bold
       ),
@@ -55,7 +55,7 @@ ThemeData lightTheme=ThemeData(
   appBarTheme: AppBarTheme(
       titleSpacing:20 ,
       titleTextStyle: TextStyle(
-          // color: Colors.orange,
+           color: Colors.orange,
           fontSize: 25,
           fontWeight: FontWeight.bold
       ),

@@ -22,15 +22,15 @@ class CacheHelper{
   //   return sharedPreferences?.getBool(key);
   // }
   static dynamic  getData({
-    required dynamic key,
+     dynamic key,
   })
   {
     //داخل الميثود بناخد المتغير اللي احنا عرفناه .set النوع اللي اشتغل عليه الset boolبترجع future bool
-   return  sharedPreferences!.get(key);
+   return  sharedPreferences?.get(key);
   }
   //اانعمل ميثود تحفظ البيانات
-static Future<bool?> saveData({
-  required String key,
+static Future<dynamic> saveData({
+  required dynamic key,
    required dynamic value,
 })async{
     if(value is String) return await sharedPreferences?.setString(key, value);
