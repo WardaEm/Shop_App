@@ -8,7 +8,7 @@ class ShopLayout extends StatelessWidget {
       appBar: AppBar(
         title: Text('salla'),
       ),
-      body: TextButton(onPressed: (){},child:Text('SIGNOUT') ,),
+      body: TextButton(onPressed: (){},child:Text('SIGNOUT') ,)
     );
   }
 }
