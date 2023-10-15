@@ -44,11 +44,9 @@ ThemeData lightTheme=ThemeData(
   primarySwatch: defaultColor,
   scaffoldBackgroundColor: Colors.white,
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
-    // backgroundColor: Colors.grey[100],
-    // selectedItemColor: Colors.orange,
-
+    selectedItemColor: defaultColor,
+elevation: 20,
     backgroundColor: Colors.white,
-    // selectedItemColor: Colors.orange,
     unselectedItemColor: Colors.grey,
     type: BottomNavigationBarType.fixed,
   ),
@@ -61,10 +59,9 @@ ThemeData lightTheme=ThemeData(
       ),
       backgroundColor: Colors.white,
       elevation: 0.0,
-      iconTheme: IconThemeData(
-          color: Colors.black
-      ),
-
+       iconTheme: IconThemeData(
+          color: defaultColor
+       ),
       systemOverlayStyle: SystemUiOverlayStyle(
           statusBarColor: Colors.white,
           statusBarIconBrightness: Brightness.dark

@@ -38,5 +38,12 @@ static Future<dynamic> saveData({
     if(value is bool) return await sharedPreferences?.setBool(key, value);
    return await sharedPreferences?.setDouble(key, value);
 }
+ static Future<bool?> removeData({
+  required dynamic key
+})async
+{
+ return await sharedPreferences?.remove(key);
+
+}
   }
 
