@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:shop/layout/shop_app/cubit/states.dart';
 import 'package:shop/layout/shop_app/shop_layout.dart';
 import 'package:shop/modules/shop/login/Shop_login_screen.dart';
 import 'package:shop/shared/cubit/cubit.dart';
@@ -11,6 +12,7 @@ import 'package:shop/shared/network/remote/dio_helper.dart';
 import 'package:shop/shared/styles/themes.dart';
 
 import 'layout/shop_app/bloc_observer.dart';
+import 'layout/shop_app/cubit/cubit.dart';
 import 'modules/shop/on_bording/on_boarding_screen.dart';
 
 Future<void> main()async {
@@ -46,9 +48,9 @@ final Widget ? startWidget;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context) => AppCubit(),
+      create: (BuildContext context) => ShopCubit(),
         // ..changeAppMode(fromShared:isDark),
-        child: BlocConsumer<AppCubit, AppStates>(
+        child: BlocConsumer<ShopCubit, ShopStates>(
             listener: (context, state) {},
             builder: (context, state) {
               return MaterialApp(
@@ -56,9 +58,9 @@ final Widget ? startWidget;
                   theme:lightTheme,
 
                   // darkTheme:darkTheme,
-                  themeMode: AppCubit
-                      .get(context)
-                      .isDark ? ThemeMode.dark : ThemeMode.light,
+                  // themeMode: AppCubit
+                  //     .get(context)
+                  //     .isDark ? ThemeMode.dark : ThemeMode.light,
                   home:startWidget
                   // onBoarding ? ShopLoginScreen() : OnBoardingScreen()
 
